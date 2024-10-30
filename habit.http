@@ -1,0 +1,32 @@
+###
+POST http://localhost:9002/habits/create
+Content-Type: application/json
+
+{
+  "habit" : "Brushing-teeth",
+  "description" : "Brush teeth twice a day",
+  "interval" : "Daily",
+  "goal" : "2"
+}
+
+
+###
+GET http://localhost:9002/habits/list
+
+###
+DELETE http://localhost:9002/habits/delete/6d2be365-33ce-40e9-9b38-f4c1350e978f
+
+###
+PUT http://localhost:9002/habits/update/8be37c71-f481-4a56-835a-e5ebabefcaa7
+Content-Type: application/json
+
+{
+  "habit" : "Brush teeth",
+  "description" : "Brush teeth twice a day",
+  "interval" : "Daily",
+  "goal" : "2"
+}
+
+
+###
+GET http://localhost:9002/habits/get/8be37c71-f481-4a56-835a-e5ebabefcaa7

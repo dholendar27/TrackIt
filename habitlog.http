@@ -1,0 +1,9 @@
+###
+POST http://localhost:9002/habitlog/add
+Content-Type: application/json
+
+{
+  "habit_id" : "6d2be365-33ce-40e9-9b38-f4c1350e978f",
+  "date": "2024-10-30 04:15:00+00:00",
+  "completed" : 1
+}
