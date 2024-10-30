@@ -37,3 +37,11 @@ class HabitLog(db.Model):
     habit_id = Column(String(36), ForeignKey('habits.id'), nullable=False)
     date = Column(DATETIME, default=datetime.datetime.now(datetime.timezone.utc))
     completed = Column(BOOLEAN,nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'habit_id': self.habit_id,
+            'date': self.date,
+            'completed': self.completed,
+        }

@@ -54,4 +54,3 @@ def update_habit(habit_id):
     habit.goal = data['goal']
     db.session.commit()
     return jsonify(habit.to_dict()), 200
-

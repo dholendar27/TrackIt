@@ -3,7 +3,17 @@ POST http://localhost:9002/habitlog/add
 Content-Type: application/json
 
 {
-  "habit_id" : "6d2be365-33ce-40e9-9b38-f4c1350e978f",
-  "date": "2024-10-30 04:15:00+00:00",
+  "habit_id" : "5baaffa0-f47b-41f4-b65f-8383b125a90a",
+  "date": "2024-10-27 04:15:00+00:00",
   "completed" : 1
+}
+
+
+###
+POST http://localhost:9002/habitlog/streak/5baaffa0-f47b-41f4-b65f-8383b125a90a
+Content-Type: application/json
+
+{
+  "start_date" : "2024-10-27 00:15:00+00:00",
+  "end_date": "2024-10-31 04:15:00+00:00"
 }
