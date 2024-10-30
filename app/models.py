@@ -1,14 +1,15 @@
 import datetime
 import uuid
 
+from sqlalchemy import Column, String, DATETIME, Integer, ForeignKey,BOOLEAN
 from app.extension import db
-from sqlalchemy import Column, String, DATETIME, INTEGER, Integer, ForeignKey,BOOLEAN
 
 INTERVAL_CHOICES = (
     ('daily','daily'),('monthly','monthly'),('weekly','weekly')
 )
 
 class Habit(db.Model):
+
     __tablename__ = 'habits'
 
     id = Column(String(36), primary_key=True,nullable=False,default=lambda: str(uuid.uuid4()))
@@ -21,6 +22,9 @@ class Habit(db.Model):
     habitlog = db.relationship('HabitLog', backref='habit', lazy=True, cascade="all, delete-orphan")
 
     def to_dict(self):
+        """
+        @return:
+        """
         return {
             'id': self.id,
             'habit': self.habit,
@@ -39,6 +43,10 @@ class HabitLog(db.Model):
     completed = Column(BOOLEAN,nullable=False)
 
     def to_dict(self):
+        """
+
+        @return:
+        """
         return {
             'id': self.id,
             'habit_id': self.habit_id,

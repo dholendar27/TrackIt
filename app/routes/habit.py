@@ -11,6 +11,9 @@ error_messages = {
 
 @api.route('/create', methods=['POST'])
 def create_habit():
+    """
+    @return:
+    """
     data = request.get_json()
     habit = Habit(habit=data['habit'], description=data['description'], interval=data['interval'], goal=data['goal'])
     db.session.add(habit)
@@ -19,6 +22,9 @@ def create_habit():
 
 @api.route('/list', methods=['GET'])
 def get_habit_list():
+    """
+    @return:
+    """
     habits = Habit.query.all()
     data = [habit.to_dict() for habit in habits]
     return jsonify(data),200
@@ -26,6 +32,10 @@ def get_habit_list():
 
 @api.route('/delete/<string:habit_id>', methods=['DELETE'])
 def delete_habit(habit_id):
+    """
+    @param habit_id:
+    @return:
+    """
     habit = Habit.query.get(habit_id)
     if not habit:
         return jsonify({"error": error_messages.get("DATA_NOT_FOUND")}), 404
@@ -36,6 +46,10 @@ def delete_habit(habit_id):
 
 @api.route('/get/<string:habit_id>', methods=['GET'])
 def get_habit(habit_id):
+    """
+    @param habit_id:
+    @return:
+    """
     habit = Habit.query.get(habit_id)
     if not habit:
         return jsonify({"error": error_messages.get("DATA_NOT_FOUND")}), 404
@@ -44,6 +58,10 @@ def get_habit(habit_id):
 
 @api.route('/update/<string:habit_id>', methods=['PUT'])
 def update_habit(habit_id):
+    """
+    @param habit_id:
+    @return:
+    """
     data = request.get_json()
     habit = Habit.query.get(habit_id)
     if not habit:

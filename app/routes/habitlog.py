@@ -11,6 +11,9 @@ habitlog = Blueprint('habitlog', __name__,url_prefix='/habitlog')
 
 @habitlog.route('/add', methods=['POST'])
 def add_habit_log():
+    """
+    @return:
+    """
     data = request.get_json()
     habitlog = HabitLog(**data)
     db.session.add(habitlog)
@@ -20,6 +23,10 @@ def add_habit_log():
 
 @habitlog.route('/streak/<string:habit_id>',methods=['POST'])
 def get_streak(habit_id):
+    """
+    @param habit_id:
+    @return:
+    """
     current_streak = 0
     max_streak = 0
     last_date = None
